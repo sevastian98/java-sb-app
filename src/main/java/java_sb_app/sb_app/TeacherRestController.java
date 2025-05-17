@@ -1,0 +1,31 @@
+package java_sb_app.sb_app;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class TeacherRestController {
+    @Value("${teacher.name}")
+    private String teacherName;
+
+    @Value("${teacher.subject}")
+    private String teacherSubject;
+
+    @Value("${teacher.experience}")
+    private String teacherExperience;
+
+    @Value("${teacher.departament}")
+    private String teacherDepartment;
+
+    @GetMapping("/teacher")
+    public String getTeacherInfo() {
+        return "Teacher Name: " + teacherName +
+                ", Subject: " + teacherSubject +
+                ", Experience: " + teacherExperience +
+                ", Department: " + teacherDepartment;
+    }
+
+
+}
